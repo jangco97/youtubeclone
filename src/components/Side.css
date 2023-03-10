@@ -1,0 +1,6 @@
+.aside {
+  width: 15%;
+  height: 100vh;
+  display: inline-block;
+  background-color: gray;
+}
