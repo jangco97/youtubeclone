@@ -1,0 +1,19 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+}
+
+.svg-img {
+  display: flex;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 25px;
+}
+
+.logo {
+  width: 100px;
+}

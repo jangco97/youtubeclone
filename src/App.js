@@ -1,17 +1,21 @@
+import { useState } from 'react';
 import './App.css';
-import Nav from './components/Nav';
+import Nav from './components/HeaderComponents/Nav';
 import MainPage from './pages/MainPage';
 import DetailPage from './pages/DetailPage';
 import SearchPage from './pages/SearchPage';
 import { Outlet, Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import Sidebar from './components/SidebarComponents/Sidebar';
+
 const Layout = () => {
+  const [showSidebar, setShowSidebar] = useState(true);
+
   return (
     <div>
-      <Nav />
+      <Nav setShowSidebar={setShowSidebar} />
       <Container>
-        <Sidebar />
+        <Sidebar showSidebar={showSidebar} />
         <Outlet />
       </Container>
     </div>
