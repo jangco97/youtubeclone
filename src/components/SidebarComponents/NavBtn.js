@@ -16,7 +16,7 @@ const NavBtn = ({ svgIcon, text, showSidebar }) => {
 
   return (
     <button className='nav-btn'>
-      {svgIcon}
+      <div>{svgIcon}</div>
       <Title>{text}</Title>
     </button>
   );

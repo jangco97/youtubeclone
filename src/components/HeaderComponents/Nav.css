@@ -1,6 +1,7 @@
 .nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 15px 20px;
 }
 
@@ -33,6 +34,7 @@ input {
   border: 1px solid lightgray;
   outline: none;
   font-size: 1rem;
+  display: none;
 }
 
 .form {
@@ -47,6 +49,7 @@ input {
   border-top-right-radius: 9999px;
   border-bottom-right-radius: 9999px;
   cursor: pointer;
+  display: none;
 }
 .search-btn:hover {
   background-color: lightgray;
@@ -69,5 +72,27 @@ input {
 
 .bell,
 .user {
-  margin-left: 10px;
+  margin-left: 20px;
+}
+
+@media (min-width: 1024px) {
+  input {
+    display: inline-flex;
+    width: 500px;
+  }
+
+  .search-btn {
+    display: inline;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  input {
+    display: inline;
+    width: 250px;
+  }
+
+  .search-btn {
+    display: inline;
+  }
 }
