@@ -4,3 +4,18 @@
   display: inline-block;
   background-color: gray;
 }
+@media (max-width: 1000px) {
+  .aside {
+    width: 13%;
+  }
+}
+@media (max-width: 768px) {
+  .aside {
+    width: 10%;
+  }
+}
+@media (max-width: 400px) {
+  .aside {
+    display: none;
+  }
+}
