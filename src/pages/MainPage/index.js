@@ -23,7 +23,7 @@ const MainPage = () => {
     }
   }, [items]);
   return (
-    <div>
+    <div className='main'>
       <Row items={youtubeData} />
     </div>
   );

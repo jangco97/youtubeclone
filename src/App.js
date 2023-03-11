@@ -3,6 +3,7 @@ import Nav from './components/Nav';
 import MainPage from './pages/MainPage';
 import DetailPage from './pages/DetailPage';
 import SearchPage from './pages/SearchPage';
+import ChannelPage from './pages/ChannelPage';
 import { Outlet, Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import Sidebar from './components/SidebarComponents/Sidebar';
@@ -26,6 +27,9 @@ function App() {
           <Route path='main' element={<MainPage />} />
           <Route path=':movieId' element={<DetailPage />} />
           <Route path='search' element={<SearchPage />} />
+          <Route path='channel'>
+            <Route index path=':channelId' element={<ChannelPage />} />
+          </Route>
         </Route>
       </Routes>
     </div>
@@ -35,4 +39,6 @@ function App() {
 export default App;
 const Container = styled.div`
   display: flex;
+  background-color: black;
+  color: white;
 `;

@@ -1,23 +1,31 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link, useNavigate } from 'react-router-dom';
 const VideoItem = ({ data }) => {
+  const movieId = data.id;
+  console.log(movieId);
   return (
-    <VideoContainer>
-      <ThumbnailImg
-        src={data.snippet.thumbnails.default.url}
-        alt={data.snippet.title}
-      />
-      <div>
-        {/* <img/> */}
-        <p>{data.snippet.title}</p>
-        <p>{data.snippet.channelTitle}</p>
-        <p>{data.snippet.publishedAt}</p>
-      </div>
-    </VideoContainer>
+    <Link to={`/${movieId}`}>
+      <VideoContainer>
+        <Wrap>
+          <ThumbnailImg src={data.snippet.thumbnails.default.url} alt={data.snippet.title} />
+        </Wrap>
+        <Thumbnail>
+          {/* <img/> */}
+          <p>{data.snippet.title}</p>
+          <Link to={`/channel/${data.snippet.channelId}`}>
+            <p>{data.snippet.channelTitle}</p>
+          </Link>
+          <p>{data.snippet.publishedAt}</p>
+        </Thumbnail>
+      </VideoContainer>
+    </Link>
+
   );
 };
 const Row = ({ items }) => {
-  console.log(items);
+  // const navigate = useNavigate()
+
   return (
     <Container>
       {items.map((item) => (
@@ -31,12 +39,22 @@ export default Row;
 
 const Container = styled.div`
   margin-top: 30px;
-  padding: 30px 0px 26px;
   display: grid;
-  gap: 25px;
+  column-gap: 1rem;
+  row-gap: 2.5rem;
+  place-items: center;
   grid-template-columns: repeat(5, 1fr);
 
+  @media (max-width: 1500px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media (max-width: 1000px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
   @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 400px) {
     grid-template-columns: repeat(1, 1fr);
   }
 `;
@@ -44,15 +62,27 @@ const VideoContainer = styled.div`
   display: flex;
   position: relative;
   flex-direction: column;
-  width: 10rem;
-  height: 15rem;
+  align-items: flex-start;
+  width: 15rem;
+  height: 18rem;
+`;
+const Wrap = styled.div`
+  width: 100%;
 `;
 const ThumbnailImg = styled.img`
-  inset: 0px;
   display: block;
-  height: 100%;
   object-fit: cover;
-  opacity: 1;
-  transition: opacity 500ms ease-in-out 0s;
   width: 100%;
+  height: 90%;
+  border-radius: 5px;
+  transition: all ease-in 200ms;
+  :hover {
+    border-radius: 15px;
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+`;
+const Thumbnail = styled.div`
+  box-sizing: border-box;
+  font-size: 0.7rem;
 `;
