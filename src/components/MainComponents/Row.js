@@ -20,6 +20,7 @@ const VideoItem = ({ data }) => {
         </Thumbnail>
       </VideoContainer>
     </Link>
+
   );
 };
 const Row = ({ items }) => {
@@ -27,7 +28,7 @@ const Row = ({ items }) => {
 
   return (
     <Container>
-      {items.map(item => (
+      {items.map((item) => (
         <VideoItem key={item.id} data={item}></VideoItem>
       ))}
     </Container>
