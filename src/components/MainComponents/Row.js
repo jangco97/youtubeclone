@@ -3,7 +3,10 @@ import styled from 'styled-components';
 const VideoItem = ({ data }) => {
   return (
     <VideoContainer>
-      <ThumbnailImg src={data.snippet.thumbnails.default.url} alt={data.snippet.title} />
+      <ThumbnailImg
+        src={data.snippet.thumbnails.default.url}
+        alt={data.snippet.title}
+      />
       <div>
         {/* <img/> */}
         <p>{data.snippet.title}</p>
@@ -17,7 +20,7 @@ const Row = ({ items }) => {
   console.log(items);
   return (
     <Container>
-      {items.map(item => (
+      {items.map((item) => (
         <VideoItem key={item.id} data={item}></VideoItem>
       ))}
     </Container>

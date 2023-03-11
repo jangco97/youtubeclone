@@ -4,14 +4,14 @@ import MainPage from './pages/MainPage';
 import DetailPage from './pages/DetailPage';
 import SearchPage from './pages/SearchPage';
 import { Outlet, Routes, Route } from 'react-router-dom';
-import Side from './components/Side';
 import styled from 'styled-components';
+import Sidebar from './components/SidebarComponents/Sidebar';
 const Layout = () => {
   return (
     <div>
       <Nav />
       <Container>
-        <Side />
+        <Sidebar />
         <Outlet />
       </Container>
     </div>
