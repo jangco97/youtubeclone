@@ -25,3 +25,49 @@
 .logo {
   width: 100px;
 }
+
+input {
+  padding: 10px;
+  border-bottom-left-radius: 9999px;
+  border-top-left-radius: 9999px;
+  border: 1px solid lightgray;
+  outline: none;
+  font-size: 1rem;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+}
+
+.search-btn {
+  height: 40px;
+  padding: 0 15px;
+  border: 1px solid lightgray;
+  border-top-right-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+  cursor: pointer;
+}
+.search-btn:hover {
+  background-color: lightgray;
+}
+
+.glass {
+  font-size: 1rem;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.bell,
+.user {
+  margin-left: 10px;
+}
