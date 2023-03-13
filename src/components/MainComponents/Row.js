@@ -5,16 +5,19 @@ const VideoItem = ({ data }) => {
   const movieId = data.id;
   console.log(movieId);
   return (
-    <Link to={`/${movieId}`}>
+    <Link to={`/${movieId}`} style={{ textDecoration: 'none' }}>
       <VideoContainer>
         <Wrap>
-          <ThumbnailImg src={data.snippet.thumbnails.default.url} alt={data.snippet.title} />
+          <ThumbnailImg
+            src={data.snippet.thumbnails.maxres?.url || data.snippet.thumbnails.default?.url}
+            alt={data.snippet.title}
+          />
         </Wrap>
         <Thumbnail>
           {/* <img/> */}
           <p>{data.snippet.title}</p>
-          <Link to={`/channel/${data.snippet.channelId}`}>
-            <p>{data.snippet.channelTitle}</p>
+          <Link to={`/channel/${data.snippet.channelId}`} style={{ textDecoration: 'none' }}>
+            <p className='channelName'>{data.snippet.channelTitle}</p>
           </Link>
           <p>{data.snippet.publishedAt}</p>
         </Thumbnail>
@@ -84,4 +87,8 @@ const ThumbnailImg = styled.img`
 const Thumbnail = styled.div`
   box-sizing: border-box;
   font-size: 0.7rem;
+  color: white;
+  .channelName {
+    color: lightblue;
+  }
 `;
