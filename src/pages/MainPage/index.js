@@ -6,6 +6,7 @@ import requests from '../../api/requests';
 const MainPage = () => {
   const [youtubeData, setYoutubeData] = useState([]);
   const items = useMemo(() => JSON.parse(localStorage.getItem('PopularVideo')), []);
+  console.log(items);
   const fetchData = async () => {
     await axios(requests.fetchPopularVideo).then(res => {
       const data = res.data.items;
