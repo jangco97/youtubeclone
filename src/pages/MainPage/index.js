@@ -5,9 +5,12 @@ import axios from '../../api/axios';
 import requests from '../../api/requests';
 const MainPage = () => {
   const [youtubeData, setYoutubeData] = useState([]);
-  const items = useMemo(() => JSON.parse(localStorage.getItem('PopularVideo')), []);
+  const items = useMemo(
+    () => JSON.parse(localStorage.getItem('PopularVideo')),
+    []
+  );
   const fetchData = async () => {
-    await axios(requests.fetchPopularVideo).then(res => {
+    await axios(requests.fetchPopularVideo).then((res) => {
       const data = res.data.items;
       console.log(data);
       setYoutubeData(data);
@@ -22,6 +25,7 @@ const MainPage = () => {
       fetchData();
     }
   }, [items]);
+  console.log('first');
   return (
     <div className='main'>
       <Row items={youtubeData} />

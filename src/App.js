@@ -43,6 +43,4 @@ function App() {
 export default App;
 const Container = styled.div`
   display: flex;
-  background-color: black;
-  color: white;
 `;
