@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo, useCallback } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import Row from '../../components/MainComponents/Row';
 import './MainPage.css';
 import axios from '../../api/axios';
