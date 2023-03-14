@@ -1,9 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
-import './Nav.css';
 import { useNavigate } from 'react-router-dom';
+import './Nav.css';
 
-const Nav = ({ setShowSidebar }) => {
+const Nav = ({ setShowSidebar, setShowModal }) => {
   const navigate = useNavigate();
   const goHome = () => {
     navigate('/');
@@ -14,7 +14,10 @@ const Nav = ({ setShowSidebar }) => {
       <div className='svg-img'>
         <button
           className='hamburger-btn'
-          onClick={() => setShowSidebar((prev) => !prev)}
+          onClick={() => {
+            setShowSidebar((prev) => !prev);
+            setShowModal((prev) => !prev);
+          }}
         >
           <svg
             className='hamburger'

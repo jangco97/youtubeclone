@@ -9,7 +9,7 @@ import SubscriptionsIcon from '././SidebarIcons/SubscriptionsIcon';
 const Sidebar = ({ showSidebar }) => {
   return (
     <div className='aside'>
-      <NavBtn showSidebar={showSidebar} svgIcon={<HomeIcon />} text={'홈'} />
+      <NavBtn showSidebar={showSidebar} svgIcon={<HomeIcon />} text={'Home'} />
       <NavBtn
         showSidebar={showSidebar}
         svgIcon={<ShortsIcon />}
@@ -18,17 +18,17 @@ const Sidebar = ({ showSidebar }) => {
       <NavBtn
         showSidebar={showSidebar}
         svgIcon={<SubscriptionsIcon />}
-        text={'구독'}
+        text={'Subscriptions'}
       />
       <NavBtn
         showSidebar={showSidebar}
         svgIcon={<LibraryIcon />}
-        text={'보관함'}
+        text={'Library'}
       />
       <NavBtn
         showSidebar={showSidebar}
         svgIcon={<HistoryIcon />}
-        text={'시청 기록'}
+        text={'History'}
       />
     </div>
   );
