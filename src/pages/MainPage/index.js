@@ -14,6 +14,7 @@ const MainContainer = styled.div`
 
 const MainPage = () => {
   const [youtubeData, setYoutubeData] = useState([]);
+
   const items = useMemo(
     () => JSON.parse(localStorage.getItem('PopularVideo')),
     []
