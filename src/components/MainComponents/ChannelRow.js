@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 const VideoItem = ({ data }) => {
-  const movieId = data.id;
+  const movieId = data.id.videoId;
   console.log(movieId);
   return (
     <Link to={`/${movieId}`} style={{ textDecoration: 'none' }}>
@@ -23,22 +23,21 @@ const VideoItem = ({ data }) => {
         </Thumbnail>
       </VideoContainer>
     </Link>
-
   );
 };
-const Row = ({ items }) => {
+const ChannelRow = ({ items }) => {
   // const navigate = useNavigate()
 
   return (
     <Container>
-      {items.map((item) => (
+      {items.map(item => (
         <VideoItem key={item.id} data={item}></VideoItem>
       ))}
     </Container>
   );
 };
 
-export default Row;
+export default ChannelRow;
 
 const Container = styled.div`
   margin-top: 30px;
