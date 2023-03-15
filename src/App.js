@@ -24,7 +24,7 @@ function App() {
     <div className='App'>
       <Routes>
         <Route path='/' element={<Layout />}>
-          <Route path='main' element={<MainPage />} />
+          <Route index element={<MainPage />} />
           <Route path=':movieId' element={<DetailPage />} />
           <Route path='search' element={<SearchPage />} />
           <Route path='channel'>
