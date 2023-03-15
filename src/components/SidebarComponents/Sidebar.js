@@ -15,35 +15,16 @@ const Container = styled.div`
   }
   position: fixed;
   top: 75px;
-  z-index: 20;
-  ${({ showSidebar }) =>
-    showSidebar ? 'width: 210px; padding-left: 20px;' : 'width: fit-content'}
 `;
 
-const Sidebar = ({ showSidebar }) => {
+const Sidebar = () => {
   return (
-    <Container showSidebar={showSidebar}>
-      <NavBtn showSidebar={showSidebar} svgIcon={<HomeIcon />} text={'Home'} />
-      <NavBtn
-        showSidebar={showSidebar}
-        svgIcon={<ShortsIcon />}
-        text={'Shorts'}
-      />
-      <NavBtn
-        showSidebar={showSidebar}
-        svgIcon={<SubscriptionsIcon />}
-        text={'Subscriptions'}
-      />
-      <NavBtn
-        showSidebar={showSidebar}
-        svgIcon={<LibraryIcon />}
-        text={'Library'}
-      />
-      <NavBtn
-        showSidebar={showSidebar}
-        svgIcon={<HistoryIcon />}
-        text={'History'}
-      />
+    <Container>
+      <NavBtn svgIcon={<HomeIcon />} text={'Home'} />
+      <NavBtn svgIcon={<ShortsIcon />} text={'Shorts'} />
+      <NavBtn svgIcon={<SubscriptionsIcon />} text={'Subscriptions'} />
+      <NavBtn svgIcon={<LibraryIcon />} text={'Library'} />
+      <NavBtn svgIcon={<HistoryIcon />} text={'History'} />
     </Container>
   );
 };

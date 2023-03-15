@@ -14,26 +14,28 @@ const Container = styled.div`
   display: flex;
   height: 100vh - 75px;
   transition: background-color 300ms;
-  z-index: 10;
-  @media screen and (max-width: 1280px) {
-    ${({ showModal }) =>
-      showModal ? 'background-color:  rgba(0, 0, 0, 0.5)' : 'white'};
-  }
+  ${({ showModal }) =>
+    showModal ? 'background-color: rgba(0, 0, 0, 0.5)' : 'white'};
+`;
+
+const OutletWrapper = styled.div`
+  ${({ showModal }) => showModal && 'z-index: -10'}
 `;
 
 const Layout = () => {
-  const [showSidebar, setShowSidebar] = useState(true);
   const [showModal, setShowModal] = useState(false);
 
   return (
     <div>
-      <Nav setShowSidebar={setShowSidebar} setShowModal={setShowModal} />
+      <Nav setShowModal={setShowModal} />
 
       <Container onClick={() => setShowModal(false)} showModal={showModal}>
-        <Sidebar showSidebar={showSidebar} />
+        <Sidebar />
 
         <SideModal showModal={showModal} />
-        <Outlet />
+        <OutletWrapper showModal={showModal}>
+          <Outlet />
+        </OutletWrapper>
       </Container>
     </div>
   );

@@ -4,7 +4,6 @@ import moment from 'moment/moment';
 
 const Container = styled.div`
   padding: 20px;
-  background-color: white;
   display: grid;
   column-gap: 1rem;
   row-gap: 2.5rem;

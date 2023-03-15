@@ -5,8 +5,11 @@ import requests from '../../api/requests';
 import styled from 'styled-components';
 
 const MainContainer = styled.div`
-  margin-left: 230px;
+  margin-left: 80px;
   margin-top: 75px;
+  @media screen and (max-width: 768px) {
+    margin-left: 0;
+  }
 `;
 
 const MainPage = () => {
