@@ -1,18 +1,6 @@
-.aside {
-  width: 208.3px;
-  position: sticky;
-  top: 75px;
-}
-
 .yt-icon {
   pointer-events: none;
   display: block;
   width: 24px;
   height: 24px;
-}
-
-@media screen and (max-width: 768px) {
-  .aside {
-    display: none;
-  }
 }

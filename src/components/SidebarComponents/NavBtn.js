@@ -21,9 +21,8 @@ const Btn = styled.button`
               margin-right: 20px;
             }
             padding: 0 10px;
-            width: 50%;
+            width: 90%;
             height: 40px;
-            margin-left: 20px;
           `
         : css`
             flex-direction: column;

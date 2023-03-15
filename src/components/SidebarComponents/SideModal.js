@@ -7,14 +7,14 @@ import LibraryIcon from './SidebarIcons/LibraryIcon';
 import HistoryIcon from './SidebarIcons/HistoryIcon';
 
 const Modal = styled.div`
-  position: absolute;
-  left: 0;
+  position: sticky;
   height: calc(100vh - 75px);
   width: 208.3px;
   background-color: white;
   transition: transform 300ms;
+  z-index: 20;
   transform: ${({ showModal }) =>
-    showModal ? 'translateX(0)' : 'translateX(-100%)'};
+    showModal ? 'translateX(-83px)' : 'translateX(-300px)'};
   @media (min-width: 1280px) {
     display: none;
   }
