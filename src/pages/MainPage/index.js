@@ -1,14 +1,18 @@
-import React, { useEffect, useState, useMemo, useCallback } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import Row from '../../components/MainComponents/Row';
 import './MainPage.css';
 import axios from '../../api/axios';
 import requests from '../../api/requests';
 const MainPage = () => {
   const [youtubeData, setYoutubeData] = useState([]);
-  const items = useMemo(() => JSON.parse(localStorage.getItem('PopularVideo')), []);
-  console.log(items);
+
+  const items = useMemo(
+    () => JSON.parse(localStorage.getItem('PopularVideo')),
+    []
+  );
+
   const fetchData = async () => {
-    await axios(requests.fetchPopularVideo).then(res => {
+    await axios(requests.fetchPopularVideo).then((res) => {
       const data = res.data.items;
       console.log(data);
       setYoutubeData(data);
@@ -23,6 +27,7 @@ const MainPage = () => {
       fetchData();
     }
   }, [items]);
+  console.log('first');
   return (
     <div className='main'>
       <Row items={youtubeData} />
