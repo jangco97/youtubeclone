@@ -4,35 +4,28 @@ import LibraryIcon from '././SidebarIcons/LibraryIcon';
 import NavBtn from './NavBtn';
 import ShortsIcon from '././SidebarIcons/ShortsIcon';
 import './Sidebar.css';
+import styled from 'styled-components';
 import SubscriptionsIcon from '././SidebarIcons/SubscriptionsIcon';
-import styled, { css } from 'styled-components';
-const Sidebar = ({ showSidebar }) => {
+const Container = styled.div`
+  height: 100vh;
+  background-color: white;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+  position: fixed;
+  top: 75px;
+`;
+
+const Sidebar = () => {
   return (
-    <Aside className='aside' showSidebar={showSidebar}>
-      <NavBtn showSidebar={showSidebar} svgIcon={<HomeIcon />} text={'Home'} />
-      <NavBtn showSidebar={showSidebar} svgIcon={<ShortsIcon />} text={'Shorts'} />
-      <NavBtn showSidebar={showSidebar} svgIcon={<SubscriptionsIcon />} text={'Subscriptions'} />
-      <NavBtn showSidebar={showSidebar} svgIcon={<LibraryIcon />} text={'Library'} />
-      <NavBtn showSidebar={showSidebar} svgIcon={<HistoryIcon />} text={'History'} />
-    </Aside>
+    <Container>
+      <NavBtn svgIcon={<HomeIcon />} text={'Home'} />
+      <NavBtn svgIcon={<ShortsIcon />} text={'Shorts'} />
+      <NavBtn svgIcon={<SubscriptionsIcon />} text={'Subscriptions'} />
+      <NavBtn svgIcon={<LibraryIcon />} text={'Library'} />
+      <NavBtn svgIcon={<HistoryIcon />} text={'History'} />
+    </Container>
   );
 };
 
 export default Sidebar;
-const Aside = styled.div`
-  .aside {
-    ${({ showSidebar }) =>
-      showSidebar
-        ? css`
-            width: 200.3px;
-            position: sticky;
-            top: 75px;
-          `
-        : css`
-            width: 100.3px;
-            position: sticky;
-            top: 75px;
-          `}
-    display: none;
-  }
-`;

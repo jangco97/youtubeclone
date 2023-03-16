@@ -26,7 +26,7 @@ const ChannelPage = () => {
     getChannelData();
   }, []);
   return (
-    <div style={{ margin: '0 auto' }}>
+    <Container>
       <ChannelBanner>
         <img
           src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy7qds4EAA4g7lulTnzXifOJLHrNi1uGDWaQ&usqp=CAU'
@@ -48,11 +48,18 @@ const ChannelPage = () => {
         </p>
       </ChannelInfo>
       <ChannelRow items={channelVideo} />
-    </div>
+    </Container>
   );
 };
 
 export default ChannelPage;
+const Container = styled.div`
+  margin-left: 80px;
+  margin-top: 75px;
+  @media screen and (max-width: 768px) {
+    margin-left: 0;
+  }
+`;
 const ChannelBanner = styled.div`
   display: flex;
   justify-content: center;

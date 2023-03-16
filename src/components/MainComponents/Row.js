@@ -1,47 +1,12 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-const VideoItem = ({ data }) => {
-  const movieId = data.id;
-  console.log(movieId);
-  return (
-    <Link to={`/${movieId}`} style={{ textDecoration: 'none' }}>
-      <VideoContainer>
-        <Wrap>
-          <ThumbnailImg
-            src={data.snippet.thumbnails.maxres?.url || data.snippet.thumbnails.default?.url}
-            alt={data.snippet.title}
-          />
-        </Wrap>
-        <Thumbnail>
-          <p>{data.snippet.title}</p>
-          <Link to={`/channel/${data.snippet.channelId}`} style={{ textDecoration: 'none' }}>
-            <p className='channelName'>{data.snippet.channelTitle}</p>
-          </Link>
-          <p>{data.snippet.publishedAt}</p>
-        </Thumbnail>
-      </VideoContainer>
-    </Link>
-  );
-};
-const Row = ({ items }) => {
-  return (
-    <Container>
-      {items.map(item => (
-        <VideoItem key={item.id} data={item}></VideoItem>[]
-      ))}
-    </Container>
-  );
-};
-
-export default Row;
+import moment from 'moment/moment';
 
 const Container = styled.div`
-  margin-top: 30px;
+  padding: 20px;
   display: grid;
   column-gap: 1rem;
   row-gap: 2.5rem;
-  place-items: center;
   grid-template-columns: repeat(5, 1fr);
 
   @media (max-width: 1500px) {
@@ -57,35 +22,88 @@ const Container = styled.div`
     grid-template-columns: repeat(1, 1fr);
   }
 `;
-const VideoContainer = styled.div`
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 15rem;
-  height: 18rem;
-`;
-const Wrap = styled.div`
-  width: 100%;
-`;
+
 const ThumbnailImg = styled.img`
-  display: block;
   object-fit: cover;
   width: 100%;
-  height: 90%;
-  border-radius: 5px;
-  transition: all ease-in 200ms;
-  :hover {
-    border-radius: 15px;
-    transform: scale(1.1);
-    cursor: pointer;
-  }
+  height: 100%;
+  transition: transform 300ms;
+  cursor: pointer;
 `;
+
 const Thumbnail = styled.div`
-  box-sizing: border-box;
-  font-size: 0.7rem;
-  color: black;
-  .channelName {
-    color: blue;
+  display: flex;
+  flex-direction: column;
+`;
+
+const VideoContainer = styled.div`
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 300ms;
+  :hover {
+    background-color: rgb(243 244 246);
   }
 `;
+
+const ImgWrapper = styled.div`
+  overflow: hidden;
+  border-radius: 5px;
+  aspect-ratio: 16 / 9;
+`;
+
+const Title = styled.h4`
+  margin: 5px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+`;
+
+const Section = styled.section`
+  display: flex;
+  flex-direction: column;
+  margin: 0 5px 5px;
+  font-size: 0.85rem;
+  color: gray;
+  font-weight: bold;
+`;
+
+const VideoItem = ({ data }) => {
+  const movieId = data.id;
+
+  return (
+    <Link to={`/${movieId}`} style={{ textDecoration: 'none' }}>
+      <VideoContainer>
+        <ImgWrapper>
+          <ThumbnailImg
+            src={data.snippet.thumbnails.maxres?.url || data.snippet.thumbnails.default?.url}
+            alt={data.snippet.title}
+          />
+        </ImgWrapper>
+
+        <Thumbnail>
+          <Title>{data.snippet.title}</Title>
+          <Link to={`/channel/${data.snippet.channelId}`} style={{ textDecoration: 'none' }}>
+            <Section>
+              <span>{data.snippet.channelTitle}</span>
+              <span>{moment(data.snippet.publishedAt).fromNow()}</span>
+            </Section>
+          </Link>
+        </Thumbnail>
+      </VideoContainer>
+    </Link>
+  );
+};
+
+const Row = ({ items }) => {
+  return (
+    <Container>
+      {items.map(item => (
+        <VideoItem key={item.id} data={item} />
+      ))}
+    </Container>
+  );
+};
+
+export default Row;

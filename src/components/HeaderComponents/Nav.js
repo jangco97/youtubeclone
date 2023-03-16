@@ -3,7 +3,7 @@ import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 import { useNavigate } from 'react-router-dom';
 import './Nav.css';
 
-const Nav = ({ setShowSidebar, setShowModal }) => {
+const Nav = ({ setShowModal }) => {
   const navigate = useNavigate();
   const goHome = () => {
     navigate('/');
@@ -15,7 +15,6 @@ const Nav = ({ setShowSidebar, setShowModal }) => {
         <button
           className='hamburger-btn'
           onClick={() => {
-            setShowSidebar(prev => !prev);
             setShowModal(prev => !prev);
           }}
         >
