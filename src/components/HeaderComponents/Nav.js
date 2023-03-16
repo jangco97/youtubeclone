@@ -15,8 +15,7 @@ const Nav = ({ setShowModal }) => {
         <button
           className='hamburger-btn'
           onClick={() => {
-            setShowModal((prev) => !prev);
-
+            setShowModal(prev => !prev);
           }}
         >
           <svg className='hamburger' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'>

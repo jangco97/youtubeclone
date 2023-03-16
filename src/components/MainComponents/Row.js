@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import moment from 'moment/moment';
 
 const Container = styled.div`
@@ -7,20 +7,18 @@ const Container = styled.div`
   display: grid;
   column-gap: 1rem;
   row-gap: 2.5rem;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
 
-  @media (max-width: 1280px) {
+  @media (max-width: 1500px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media (max-width: 1000px) {
     grid-template-columns: repeat(3, 1fr);
   }
-  @media (max-width: 1024px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
   @media (max-width: 768px) {
-    margin-left: 0;
     grid-template-columns: repeat(2, 1fr);
   }
-  @media (max-width: 640px) {
-    margin-left: 0;
+  @media (max-width: 400px) {
     grid-template-columns: repeat(1, 1fr);
   }
 `;
@@ -41,9 +39,7 @@ const VideoContainer = styled.div`
     background-color: rgb(243 244 246);
   }
 
-  :hover ${ThumbnailImg} {
-    transform: scale(1.05);
-  }
+
 `;
 
 const Thumbnail = styled.div`
@@ -76,34 +72,36 @@ const Section = styled.section`
 `;
 
 const VideoItem = ({ data }) => {
-  const navigate = useNavigate();
-
   const movieId = data.id;
 
   return (
-    <VideoContainer onClick={() => navigate(`/${movieId}`)}>
-      <ImgWrapper>
-        <ThumbnailImg
-          src={data.snippet.thumbnails.default.url}
-          alt={data.snippet.title}
-        />
-      </ImgWrapper>
+    <Link to={`/${movieId}`} style={{ textDecoration: 'none' }}>
+      <VideoContainer>
+        <ImgWrapper>
+          <ThumbnailImg
+            src={data.snippet.thumbnails.maxres?.url || data.snippet.thumbnails.default?.url}
+            alt={data.snippet.title}
+          />
+        </ImgWrapper>
 
-      <Thumbnail>
-        <Title>{data.snippet.title}</Title>
-        <Section onClick={() => navigate(`/channel/${data.snippet.channelId}`)}>
-          <span>{data.snippet.channelTitle}</span>
-          <span>{moment(data.snippet.publishedAt).fromNow()}</span>
-        </Section>
-      </Thumbnail>
-    </VideoContainer>
+        <Thumbnail>
+          <Title>{data.snippet.title}</Title>
+          <Link to={`/channel/${data.snippet.channelId}`} style={{ textDecoration: 'none' }}>
+            <Section>
+              <span>{data.snippet.channelTitle}</span>
+              <span>{moment(data.snippet.publishedAt).fromNow()}</span>
+            </Section>
+          </Link>
+        </Thumbnail>
+      </VideoContainer>
+    </Link>
   );
 };
 
 const Row = ({ items }) => {
   return (
     <Container>
-      {items.map((item) => (
+      {items.map(item => (
         <VideoItem key={item.id} data={item} />
       ))}
     </Container>
