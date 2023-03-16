@@ -14,7 +14,6 @@ const VideoItem = ({ data }) => {
           />
         </Wrap>
         <Thumbnail>
-          {/* <img/> */}
           <p>{data.snippet.title}</p>
           <Link to={`/channel/${data.snippet.channelId}`} style={{ textDecoration: 'none' }}>
             <p className='channelName'>{data.snippet.channelTitle}</p>
@@ -26,12 +25,10 @@ const VideoItem = ({ data }) => {
   );
 };
 const Row = ({ items }) => {
-  // const navigate = useNavigate()
-
   return (
     <Container>
       {items.map(item => (
-        <VideoItem key={item.id} data={item}></VideoItem>
+        <VideoItem key={item.id} data={item}></VideoItem>[]
       ))}
     </Container>
   );
