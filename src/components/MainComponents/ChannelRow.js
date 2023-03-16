@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 const VideoItem = ({ data }) => {
   const movieId = data.id.videoId;
   console.log(movieId);
@@ -9,16 +9,13 @@ const VideoItem = ({ data }) => {
       <VideoContainer>
         <Wrap>
           <ThumbnailImg
-            src={data.snippet.thumbnails.maxres?.url || data.snippet.thumbnails.default?.url}
+            src={data.snippet.thumbnails.high?.url || data.snippet.thumbnails.default?.url}
             alt={data.snippet.title}
           />
         </Wrap>
         <Thumbnail>
           {/* <img/> */}
           <p>{data.snippet.title}</p>
-          <Link to={`/channel/${data.snippet.channelId}`} style={{ textDecoration: 'none' }}>
-            <p className='channelName'>{data.snippet.channelTitle}</p>
-          </Link>
           <p>{data.snippet.publishedAt}</p>
         </Thumbnail>
       </VideoContainer>
@@ -26,12 +23,10 @@ const VideoItem = ({ data }) => {
   );
 };
 const ChannelRow = ({ items }) => {
-  // const navigate = useNavigate()
-
   return (
     <Container>
       {items.map(item => (
-        <VideoItem key={item.id} data={item}></VideoItem>
+        <VideoItem key={item.id.videoId} data={item}></VideoItem>
       ))}
     </Container>
   );
@@ -87,8 +82,8 @@ const ThumbnailImg = styled.img`
 const Thumbnail = styled.div`
   box-sizing: border-box;
   font-size: 0.7rem;
-  color: white;
+  color: black;
   .channelName {
-    color: lightblue;
+    color: blue;
   }
 `;
