@@ -1,21 +1,38 @@
-import HistoryIcon from './HistoryIcon';
-import HomeIcon from './HomeIcon';
-import LibraryIcon from './LibraryIcon';
+import HistoryIcon from '././SidebarIcons/HistoryIcon';
+import HomeIcon from '././SidebarIcons/HomeIcon';
+import LibraryIcon from '././SidebarIcons/LibraryIcon';
 import NavBtn from './NavBtn';
-import ShortsIcon from './ShortsIcon';
+import ShortsIcon from '././SidebarIcons/ShortsIcon';
 import './Sidebar.css';
-import SubscriptionsIcon from './SubscriptionsIcon';
-
-const Sidebar = () => {
+import SubscriptionsIcon from '././SidebarIcons/SubscriptionsIcon';
+import styled, { css } from 'styled-components';
+const Sidebar = ({ showSidebar }) => {
   return (
-    <div className='aside'>
-      <NavBtn svgIcon={<HomeIcon />} text={'홈'} />
-      <NavBtn svgIcon={<ShortsIcon />} text={'Shorts'} />
-      <NavBtn svgIcon={<SubscriptionsIcon />} text={'구독'} />
-      <NavBtn svgIcon={<LibraryIcon />} text={'보관함'} />
-      <NavBtn svgIcon={<HistoryIcon />} text={'시청 기록'} />
-    </div>
+    <Aside className='aside' showSidebar={showSidebar}>
+      <NavBtn showSidebar={showSidebar} svgIcon={<HomeIcon />} text={'Home'} />
+      <NavBtn showSidebar={showSidebar} svgIcon={<ShortsIcon />} text={'Shorts'} />
+      <NavBtn showSidebar={showSidebar} svgIcon={<SubscriptionsIcon />} text={'Subscriptions'} />
+      <NavBtn showSidebar={showSidebar} svgIcon={<LibraryIcon />} text={'Library'} />
+      <NavBtn showSidebar={showSidebar} svgIcon={<HistoryIcon />} text={'History'} />
+    </Aside>
   );
 };
 
 export default Sidebar;
+const Aside = styled.div`
+  .aside {
+    ${({ showSidebar }) =>
+      showSidebar
+        ? css`
+            width: 200.3px;
+            position: sticky;
+            top: 75px;
+          `
+        : css`
+            width: 100.3px;
+            position: sticky;
+            top: 75px;
+          `}
+    display: none;
+  }
+`;

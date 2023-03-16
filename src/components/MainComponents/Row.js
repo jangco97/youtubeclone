@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 const VideoItem = ({ data }) => {
   const movieId = data.id;
   console.log(movieId);
@@ -87,8 +87,8 @@ const ThumbnailImg = styled.img`
 const Thumbnail = styled.div`
   box-sizing: border-box;
   font-size: 0.7rem;
-  color: white;
+  color: black;
   .channelName {
-    color: lightblue;
+    color: blue;
   }
 `;

@@ -1,33 +1,6 @@
-.aside {
-  width: 25%;
-  padding: 10px;
-  position: sticky;
-  top: 24.2px;
-}
-
 .yt-icon {
   pointer-events: none;
   display: block;
   width: 24px;
   height: 24px;
-  margin-right: 20px;
-}
-
-.nav-btn {
-  display: flex;
-  border-radius: 10px;
-  padding: 0 10px;
-  outline: none;
-  border: none;
-  width: 90%;
-  height: 40px;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: center;
-  cursor: pointer;
-  background-color: white;
-}
-
-.nav-btn:hover {
-  background-color: #f0f0f0;
 }
