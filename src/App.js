@@ -11,29 +11,32 @@ import Sidebar from './components/SidebarComponents/Sidebar';
 import SideModal from './components/SidebarComponents/SideModal';
 
 const Container = styled.div`
-  position: relative;
   display: flex;
-  height: calc(100vh - 75px);
+  height: 100vh - 75px;
   transition: background-color 300ms;
-  @media screen and (max-width: 1280px) {
-    ${({ showModal }) => showModal && 'background-color: rgba(0, 0, 0, 0.5)'};
-  }
+  ${({ showModal }) =>
+    showModal ? 'background-color: rgba(0, 0, 0, 0.5)' : 'white'};
+`;
+
+const OutletWrapper = styled.div`
+  ${({ showModal }) => showModal && 'z-index: -10'}
 `;
 
 const Layout = () => {
-  const [showSidebar, setShowSidebar] = useState(true);
   const [showModal, setShowModal] = useState(false);
 
   return (
     <div>
-      <Nav setShowSidebar={setShowSidebar} setShowModal={setShowModal} />
-      <div style={{ display: 'flex' }}>
-        <Container onClick={() => setShowModal(false)} showModal={showModal}>
-          <Sidebar showSidebar={showSidebar} />
-          <SideModal showModal={showModal} />
-        </Container>
-        <Outlet />
-      </div>
+      <Nav setShowModal={setShowModal} />
+      <Container onClick={() => setShowModal(false)} showModal={showModal}>
+        <Sidebar />
+
+        <SideModal showModal={showModal} />
+        <OutletWrapper showModal={showModal}>
+          <Outlet />
+        </OutletWrapper>
+      </Container>
+
     </div>
   );
 };
