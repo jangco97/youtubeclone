@@ -20,7 +20,7 @@ const Modal = styled.div`
 
 const SideModal = ({ showModal }) => {
   return (
-    <Modal showModal={showModal} onClick={(e) => e.stopPropagation()}>
+    <Modal showModal={showModal} onClick={e => e.stopPropagation()}>
       <ModalNavBtn svgIcon={<HomeIcon />} text={'Home'} />
       <ModalNavBtn svgIcon={<ShortsIcon />} text={'Shorts'} />
       <ModalNavBtn svgIcon={<SubscriptionsIcon />} text={'Subscriptions'} />

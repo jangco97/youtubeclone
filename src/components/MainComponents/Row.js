@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment/moment';
 
+
 const Container = styled.div`
   padding: 20px;
   display: grid;
@@ -45,8 +46,18 @@ const VideoContainer = styled.div`
   :hover {
     background-color: rgb(243 244 246);
   }
+
+`;
+const Thumbnail = styled.div`
+  box-sizing: border-box;
+  font-size: 0.7rem;
+  color: black;
+  .channelName {
+    color: blue;
+
   :hover ${ThumbnailImg} {
     transform: scale(1.05);
+
   }
 `;
 

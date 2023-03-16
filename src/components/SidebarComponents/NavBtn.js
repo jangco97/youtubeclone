@@ -13,6 +13,7 @@ const Btn = styled.button`
     background-color: #f0f0f0;
   }
 
+
   @media (min-width: 768px) {
     flex-direction: column;
     justify-content: center;
@@ -41,13 +42,7 @@ const Btn = styled.button`
   }
 
   @media screen and (max-width: 768px) {
-    div {
-      margin-right: 20px;
-    }
-    padding: 0 10px;
-    height: 40px;
-    width: 168.3px;
-    margin-left: 20px;
+    display: none;
   }
 `;
 

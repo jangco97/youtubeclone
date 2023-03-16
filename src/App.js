@@ -28,7 +28,6 @@ const Layout = () => {
   return (
     <div>
       <Nav setShowModal={setShowModal} />
-
       <Container onClick={() => setShowModal(false)} showModal={showModal}>
         <Sidebar />
 
@@ -37,6 +36,7 @@ const Layout = () => {
           <Outlet />
         </OutletWrapper>
       </Container>
+
     </div>
   );
 };
