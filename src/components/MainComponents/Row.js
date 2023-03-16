@@ -31,11 +31,6 @@ const ThumbnailImg = styled.img`
   cursor: pointer;
 `;
 
-const Thumbnail = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
 const VideoContainer = styled.div`
   cursor: pointer;
   border-radius: 5px;
@@ -43,6 +38,13 @@ const VideoContainer = styled.div`
   :hover {
     background-color: rgb(243 244 246);
   }
+
+
+`;
+
+const Thumbnail = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 const ImgWrapper = styled.div`

@@ -6,6 +6,7 @@ import ShortsIcon from '././SidebarIcons/ShortsIcon';
 import './Sidebar.css';
 import styled from 'styled-components';
 import SubscriptionsIcon from '././SidebarIcons/SubscriptionsIcon';
+
 const Container = styled.div`
   height: 100vh;
   background-color: white;
