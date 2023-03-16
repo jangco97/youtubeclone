@@ -6,6 +6,7 @@ import ShortsIcon from '././SidebarIcons/ShortsIcon';
 import './Sidebar.css';
 import styled from 'styled-components';
 import SubscriptionsIcon from '././SidebarIcons/SubscriptionsIcon';
+
 const Container = styled.div`
   height: 100vh;
   background-color: white;
@@ -29,20 +30,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-const Aside = styled.div`
-  .aside {
-    ${({ showSidebar }) =>
-      showSidebar
-        ? css`
-            width: 200.3px;
-            position: sticky;
-            top: 75px;
-          `
-        : css`
-            width: 100.3px;
-            position: sticky;
-            top: 75px;
-          `}
-    display: none;
-  }
-`;

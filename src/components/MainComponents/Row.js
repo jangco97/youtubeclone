@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment/moment';
 
-
 const Container = styled.div`
   padding: 20px;
   display: grid;
@@ -34,11 +33,6 @@ const ThumbnailImg = styled.img`
   cursor: pointer;
 `;
 
-const Thumbnail = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
 const VideoContainer = styled.div`
   cursor: pointer;
   border-radius: 5px;
@@ -47,18 +41,14 @@ const VideoContainer = styled.div`
     background-color: rgb(243 244 246);
   }
 
-`;
-const Thumbnail = styled.div`
-  box-sizing: border-box;
-  font-size: 0.7rem;
-  color: black;
-  .channelName {
-    color: blue;
-
   :hover ${ThumbnailImg} {
     transform: scale(1.05);
-
   }
+`;
+
+const Thumbnail = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 const ImgWrapper = styled.div`
