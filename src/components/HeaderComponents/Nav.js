@@ -3,7 +3,7 @@ import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 import { useNavigate } from 'react-router-dom';
 import './Nav.css';
 
-const Nav = ({ setShowModal }) => {
+const Nav = ({ setShowSidebar, setShowModal, inputdata, inputHandler,clickHandler }) => {
   const navigate = useNavigate();
   const goHome = () => {
     navigate('/');
@@ -32,8 +32,8 @@ const Nav = ({ setShowModal }) => {
         />
       </div>
       <form>
-        <input type='text' placeholder='Search' />
-        <button type='submit' className='search-btn'>
+        <input type='text' placeholder='Search' value={inputdata} onChange={inputHandler}/>
+        <button type='submit' className='search-btn' onClick={clickHandler}> 
           <FontAwesomeIcon className='glass' icon={solid('magnifying-glass')} />
         </button>
       </form>
