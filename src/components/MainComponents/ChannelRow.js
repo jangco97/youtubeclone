@@ -1,47 +1,59 @@
 import React from 'react';
-import './Recommend.css';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 const VideoItem = ({ data }) => {
   const movieId = data.id.videoId;
-
+  console.log(movieId);
   return (
     <Link to={`/${movieId}`} style={{ textDecoration: 'none' }}>
       <VideoContainer>
         <Wrap>
           <ThumbnailImg
-            src={data.snippet.thumbnails.maxres?.url || data.snippet.thumbnails.default?.url}
+            src={data.snippet.thumbnails.high?.url || data.snippet.thumbnails.default?.url}
             alt={data.snippet.title}
           />
         </Wrap>
         <Thumbnail>
           {/* <img/> */}
           <p>{data.snippet.title}</p>
-          <Link to={`/channel/${data.snippet.channelId}`} style={{ textDecoration: 'none' }}>
-            <p className='channelName'>{data.snippet.channelTitle}</p>
-          </Link>
           <p>{data.snippet.publishedAt}</p>
         </Thumbnail>
       </VideoContainer>
     </Link>
   );
 };
-const Recommend = ({ data }) => {
-  // const navigate = useNavigate()
-
+const ChannelRow = ({ items }) => {
   return (
     <Container>
-      {data.map(item => (
+      {items.map(item => (
         <VideoItem key={item.id.videoId} data={item}></VideoItem>
       ))}
     </Container>
   );
 };
 
-export default Recommend;
+export default ChannelRow;
+
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
+  margin-top: 30px;
+  display: grid;
+  column-gap: 1rem;
+  row-gap: 2.5rem;
+  place-items: center;
+  grid-template-columns: repeat(5, 1fr);
+
+  @media (max-width: 1500px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media (max-width: 1000px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 400px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 const VideoContainer = styled.div`
   display: flex;
@@ -70,8 +82,8 @@ const ThumbnailImg = styled.img`
 const Thumbnail = styled.div`
   box-sizing: border-box;
   font-size: 0.7rem;
-  color: white;
+  color: black;
   .channelName {
-    color: lightblue;
+    color: blue;
   }
 `;

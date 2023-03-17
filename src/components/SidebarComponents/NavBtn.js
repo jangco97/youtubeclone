@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import './Sidebar.css';
 
 const Btn = styled.button`
@@ -13,29 +13,17 @@ const Btn = styled.button`
     background-color: #f0f0f0;
   }
 
+
   @media (min-width: 768px) {
-    ${({ showSidebar }) =>
-      showSidebar
-        ? css`
-            div {
-              margin-right: 20px;
-            }
-            padding: 0 10px;
-            width: 50%;
-            height: 40px;
-            margin-left: 20px;
-          `
-        : css`
-            flex-direction: column;
-            justify-content: center;
-            width: 80px;
-            height: 60px;
-            padding-top: 10px;
-            margin-left: 3px;
-            h3 {
-              font-size: smaller;
-            }
-          `}
+    flex-direction: column;
+    justify-content: center;
+    width: 80px;
+    height: 60px;
+    padding-top: 10px;
+    margin-left: 3px;
+    h3 {
+      font-size: smaller;
+    }
   }
 
   @media (min-width: 768px) and (max-width: 1280px) {
@@ -54,19 +42,13 @@ const Btn = styled.button`
   }
 
   @media screen and (max-width: 768px) {
-    div {
-      margin-right: 20px;
-    }
-    padding: 0 10px;
-    height: 40px;
-    width: 168.3px;
-    margin-left: 20px;
+    display: none;
   }
 `;
 
-const NavBtn = ({ svgIcon, text, showSidebar }) => {
+const NavBtn = ({ svgIcon, text }) => {
   return (
-    <Btn showSidebar={showSidebar}>
+    <Btn>
       <div>{svgIcon}</div>
       <h3>{text}</h3>
     </Btn>

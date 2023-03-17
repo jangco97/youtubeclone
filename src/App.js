@@ -11,17 +11,18 @@ import Sidebar from './components/SidebarComponents/Sidebar';
 import SideModal from './components/SidebarComponents/SideModal';
 import { useNavigate } from 'react-router-dom';
 const Container = styled.div`
-  position: relative;
   display: flex;
-  height: calc(100vh - 75px);
+  height: 100vh - 75px;
   transition: background-color 300ms;
-  @media screen and (max-width: 1280px) {
-    ${({ showModal }) => showModal && 'background-color: rgba(0, 0, 0, 0.5)'};
-  }
+  ${({ showModal }) =>
+    showModal ? 'background-color: rgba(0, 0, 0, 0.5)' : 'white'};
+`;
+
+const OutletWrapper = styled.div`
+  ${({ showModal }) => showModal && 'z-index: -10'}
 `;
 
 const Layout = () => {
-  const [showSidebar, setShowSidebar] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [inputdata, setInputData] = useState("")
   const navigate = useNavigate()
@@ -35,13 +36,16 @@ const Layout = () => {
   }
   return (
     <div>
-      <Nav setShowSidebar={setShowSidebar} setShowModal={setShowModal} inputdata={inputdata} inputHandler={inputHandler} clickHandler={clickHandler}/>
+      <Nav setShowModal={setShowModal} inputdata={inputdata} inputHandler={inputHandler} clickHandler={clickHandler}/>
       <Container onClick={() => setShowModal(false)} showModal={showModal}>
-        <Sidebar showSidebar={showSidebar} />
+        <Sidebar />
+
         <SideModal showModal={showModal} />
+        <OutletWrapper showModal={showModal}>
+          <Outlet />
+        </OutletWrapper>
       </Container>
 
-      <Outlet />
     </div>
   );
 };
@@ -52,7 +56,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Layout />}>
           {/* <Route index element={<HomePage />} /> */}
-          <Route path='main' element={<MainPage />} />
+          <Route index element={<MainPage />} />
           <Route path=':movieId' element={<DetailPage />} />
           <Route path='search/:searchId' element={<SearchPage />}/>
           <Route path='channel'>

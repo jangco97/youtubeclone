@@ -4,6 +4,8 @@ import moment from 'moment/moment';
 
 const Container = styled.div`
   padding: 20px;
+  margin-left: 80px;
+  margin-top: 75px;
   display: grid;
   column-gap: 1rem;
   row-gap: 2.5rem;
@@ -72,7 +74,7 @@ const Section = styled.section`
 `;
 
 const VideoItem = ({ data }) => {
-  const movieId = data.id;
+  const movieId = data.id.videoId;
 
   return (
     <Link to={`/${movieId}`} style={{ textDecoration: 'none' }}>
@@ -98,7 +100,7 @@ const VideoItem = ({ data }) => {
   );
 };
 
-const Row = ({ items }) => {
+const SearchMain = ({ items }) => {
   return (
     <Container>
       {items.map(item => (
@@ -108,4 +110,4 @@ const Row = ({ items }) => {
   );
 };
 
-export default Row;
+export default SearchMain;
