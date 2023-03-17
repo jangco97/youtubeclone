@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# 프로젝트 제목
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+YouTube 
 
-## Available Scripts
+## 프로젝트 소개
 
-In the project directory, you can run:
+Google에서 제공하는 YouTube API를 이용하여 데이터를 받아와 YouTube 앱을 만든다. 
 
-### `npm start`
+## 팀원 소개
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[김응열](https://github.com/Valentin1495) | [장건우](https://github.com/jangco97) | [이현정](https://github.com/dochi-dev-tech) | [최우성](https://github.com/No-answerday) 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 기술 스택
 
-### `npm test`
+* antd
+* axios
+* moment
+* react
+* react-router-dom
+* styled-components
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 과제 진행 기간
 
-### `npm run build`
+2023.3.10 ~ 2023.3.16
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 작업 영역 및 구현 기능 설명
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* 김응열
+  * 홈페이지 header와 sidebar, sidebar modal 구현
+  * 홈페이지 비디오 카드 스타일링
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* 장건우
+  * Mainpage, Channelpage, MainComponent 구현
+  * 홈페이지 비디오 이미지, 비디오 타이틀, 채널 이름, 날짜 등의 데이터를 렌더링
+  * ChannelPage는 메인페이지의 채널이름을 누르면 이동하도록 구현하였고 useEffect로 해당 channelId를 활용하여(useParams로 가져옴) axios로 api 호출을 하여 채널 관련 비디오가 10개 받아지도록 구현했습니다.
 
-### `npm run eject`
+* 최우성 
+  * SearchPage, SearchMain 구현
+  * useState와 useEffect를 사용하여 검색어를 저장. 검색어는 useParams를 사용하여 URL에서 가져오고, 그 결과를 SearchMain 컴포넌트에 전달하여 화면에 출력하는 것을 구현
+  
+### 어려웠던 점
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* styled-components를 활용할 때 props 이용하여 modal을 열고 닫는 것과 반응형 구현하는 부분이 힘들었습니다.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Youtube api 호출에 제한이 있어서 그 부분을 해결하기 위해 localstorage로 대처하는 부분이 까다롭게 느껴졌습니다. 또한 async await 비동기 처리하는 부분이 조금 까다로웠습니다.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* api를 호출하면서 여러가지 오류들이 났었고 이를 해결하는 것이 어려웠다.
+또 api의 불필요한 호출을 최소화하는 것이나 내가 원하는 검색어만 가져오게 하는 것이 생각보다 까다로웠다. useState 나 useEffect 같은 Hook을 적재적소에 잘 사용하는 것이 어려웠다.
