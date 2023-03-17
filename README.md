@@ -12,12 +12,12 @@ Google에서 제공하는 YouTube API를 이용하여 데이터를 받아와 You
 
 ## 기술 스택
 
-* antd
-* axios
-* moment
-* react
-* react-router-dom
-* styled-components
+* <img src="https://img.shields.io/badge/antd-E34F2?style=flat-square"/>
+* <img src="https://img.shields.io/badge/axios-purple?style=flat-square"/>
+* <img src="https://img.shields.io/badge/moment-black?style=flat-square"/>
+* <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=black"/>
+* <img src="https://img.shields.io/badge/React%20Router%20Dom-white?style=flat-square&logo=ReactRouter&logoColor=black%22/%3E"/>
+* <img src="https://img.shields.io/badge/styled components-DB7093?style=flat-square&logo=styled-components&logoColor=white"/>
 
 ### 과제 진행 기간
 
