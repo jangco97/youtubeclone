@@ -1,7 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from '../../api/axios';
 import './SearchPage.css';
-const SearchPage = () => {
-  return <div>서치 페이지입니다.</div>;
-};
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+export default function SearchPage() {
+  const [searchResults, setSearchResults] = useState([]);
+  const {searchId} = useParams()
 
-export default SearchPage;
+  useEffect(()=> {
+    axios.get(`/search?part=snippet&maxResults=10&type=video&q=${searchId}`)
+      .then(response => {
+        console.log(response.data.items);
+      })
+      .catch(error =>{
+        console.error(error);
+      });
+  },[])
+    
+
+
+
+  
+  return (
+    <div>
+  
+    </div>
+  );
+  }
