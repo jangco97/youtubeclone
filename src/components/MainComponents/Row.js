@@ -18,7 +18,7 @@ const Container = styled.div`
   @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media (max-width: 400px) {
+  @media (max-width: 640px) {
     grid-template-columns: repeat(1, 1fr);
   }
 `;
@@ -38,13 +38,12 @@ const VideoContainer = styled.div`
   :hover {
     background-color: rgb(243 244 246);
   }
-
-
 `;
 
 const Thumbnail = styled.div`
   display: flex;
   flex-direction: column;
+  height: 100px;
 `;
 
 const ImgWrapper = styled.div`
@@ -60,6 +59,7 @@ const Title = styled.h4`
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   overflow: hidden;
+  color: black;
 `;
 
 const Section = styled.section`
@@ -75,18 +75,29 @@ const VideoItem = ({ data }) => {
   const movieId = data.id;
 
   return (
-    <Link to={`/${movieId}`} style={{ textDecoration: 'none' }}>
+    <Link
+      to={`/${movieId}`}
+      style={{
+        textDecoration: 'none',
+      }}
+    >
       <VideoContainer>
         <ImgWrapper>
           <ThumbnailImg
-            src={data.snippet.thumbnails.maxres?.url || data.snippet.thumbnails.default?.url}
+            src={
+              data.snippet.thumbnails.maxres?.url ||
+              data.snippet.thumbnails.default?.url
+            }
             alt={data.snippet.title}
           />
         </ImgWrapper>
 
         <Thumbnail>
           <Title>{data.snippet.title}</Title>
-          <Link to={`/channel/${data.snippet.channelId}`} style={{ textDecoration: 'none' }}>
+          <Link
+            to={`/channel/${data.snippet.channelId}`}
+            style={{ textDecoration: 'none' }}
+          >
             <Section>
               <span>{data.snippet.channelTitle}</span>
               <span>{moment(data.snippet.publishedAt).fromNow()}</span>
@@ -101,7 +112,7 @@ const VideoItem = ({ data }) => {
 const Row = ({ items }) => {
   return (
     <Container>
-      {items.map(item => (
+      {items.map((item) => (
         <VideoItem key={item.id} data={item} />
       ))}
     </Container>
