@@ -32,7 +32,7 @@ Google에서 제공하는 YouTube API를 이용하여 데이터를 받아와 You
 * 장건우
   * Mainpage, Channelpage, MainComponent 구현
   * 홈페이지 비디오 이미지, 비디오 타이틀, 채널 이름, 날짜 등의 데이터를 렌더링
-  * ChannelPage는 메인페이지의 채널이름을 누르면 이동하도록 구현하였고 useEffect로 해당 channelId를 활용하여(useParams로 가져옴) axios로 api 호출을 하여 채널 관련 비디오가 10개 받아지도록 구현했습니다.
+  * ChannelPage는 메인페이지의 채널이름을 누르면 이동하도록 구현하였고 useEffect로 해당 channelId를 활용하여(useParams로 가져옴) axios로 api 호출을 하여 채널 관련 비디오가 10개 받아지도록 구현
 
 * 최우성 
   * SearchPage, SearchMain 구현
@@ -44,5 +44,5 @@ Google에서 제공하는 YouTube API를 이용하여 데이터를 받아와 You
 
 * Youtube api 호출에 제한이 있어서 그 부분을 해결하기 위해 localstorage로 대처하는 부분이 까다롭게 느껴졌습니다. 또한 async await 비동기 처리하는 부분이 조금 까다로웠습니다.
 
-* api를 호출하면서 여러가지 오류들이 났었고 이를 해결하는 것이 어려웠다.
-또 api의 불필요한 호출을 최소화하는 것이나 내가 원하는 검색어만 가져오게 하는 것이 생각보다 까다로웠다. useState 나 useEffect 같은 Hook을 적재적소에 잘 사용하는 것이 어려웠다.
+* api를 호출하면서 여러가지 오류들이 났었고 이를 해결하는 것이 어려웠습니다.
+또 api의 불필요한 호출을 최소화하는 것이나 내가 원하는 검색어만 가져오게 하는 것이 생각보다 까다로웠습니다. useState 나 useEffect 같은 Hook을 적재적소에 잘 사용하는 것이 어려웠습니다.
